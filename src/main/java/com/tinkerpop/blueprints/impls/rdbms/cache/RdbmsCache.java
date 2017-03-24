@@ -31,9 +31,10 @@ public class RdbmsCache {
 
     // Vertex & Edge cache
     // need read-through?
-//    Vertex cache
     CacheBaseline<XVertex> vertexCache = CacheBaselineImpl.of();
     CacheBaseline<XVertex> edgeCache = CacheBaselineImpl.of();
+
+
 //    CacheBaseline<XEdge> elements = CacheBaselineImpl.of();
     // Vertex & Edge mutable characteristics cache
 }

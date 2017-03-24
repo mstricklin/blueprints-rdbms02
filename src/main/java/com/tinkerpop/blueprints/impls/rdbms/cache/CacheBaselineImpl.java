@@ -11,7 +11,7 @@ import static com.google.common.collect.Maps.newHashMap;
 @Slf4j
 class CacheBaselineImpl<T> implements RdbmsCache.CacheBaseline<T> {
     // TODO: parameterize
-    // max size
+    // max size?
     // prime cache
     // read-fail handler
     static RdbmsCache.CacheBaseline of() {

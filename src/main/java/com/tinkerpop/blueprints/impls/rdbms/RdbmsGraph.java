@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 @Slf4j
 public class RdbmsGraph implements TransactionalGraph, IndexableGraph, KeyIndexableGraph {
 
@@ -65,6 +67,10 @@ public class RdbmsGraph implements TransactionalGraph, IndexableGraph, KeyIndexa
         if (!log.isInfoEnabled())
             return;
         cache.dump();
+
+        for (XVertex v: cache.vertex().list()) {
+            log.info(" {}", v);
+        }
     }
 
 
@@ -98,6 +104,13 @@ public class RdbmsGraph implements TransactionalGraph, IndexableGraph, KeyIndexa
     }
     @Override
     public void removeVertex(Vertex vertex) {
+        // TODO: queue W-B
+        checkNotNull(vertex);
+//        for (Edge e : vertex.getEdges(Direction.BOTH))
+//            removeEdge(e);
+        Integer intId = (Integer) vertex.getId();
+        // TODO: remove from indices
+        cache.vertex().remove(intId);
 
     }
     @Override

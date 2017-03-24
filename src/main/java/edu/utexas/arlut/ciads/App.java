@@ -14,6 +14,10 @@ public class App {
         Vertex v0 = g.addVertex(null);
         Vertex v1 = g.addVertex(null);
         g.addEdge(null, v0, v1, "sam");
+
+        Vertex v2 = g.addVertex(null);
+        Vertex v3 = g.addVertex(null);
+        g.removeVertex(v2);
 //
 //        Vertex v4 = g.addVertex(null);
 ////        g.dump();

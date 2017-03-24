@@ -15,13 +15,13 @@ public class RdbmsXActionCache {
 
     private RdbmsXActionCache(RdbmsCache baseline_) {
         baseline = baseline_;
-        vertexCache = CacheUnmodifiable.Cache.of(baseline.vertexCache);
-        edgeCache = CacheUnmodifiable.Cache.of(baseline.edgeCache);
+        vertexCache = CacheUnmodifiable.of(baseline.vertexCache);
+        edgeCache = CacheUnmodifiable.of(baseline.edgeCache);
     }
-    public CacheUnmodifiable<XVertex> vertex() {
+    public RevCache<XVertex> vertex() {
         return vertexCache;
     }
-    public CacheUnmodifiable<XEdge> edge() {
+    public RevCache<XEdge> edge() {
         return edgeCache;
     }
     public void dump() {
@@ -39,6 +39,6 @@ public class RdbmsXActionCache {
         edgeCache.reset();
     }
     // =================================
-    private final CacheUnmodifiable<XVertex> vertexCache;
-    private final CacheUnmodifiable<XEdge> edgeCache;
+    private final RevCache<XVertex> vertexCache;
+    private final RevCache<XEdge> edgeCache;
 }
